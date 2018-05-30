@@ -1,0 +1,44 @@
+.yibiao{
+	background-color: blue;
+	width:100px;
+	height: 700px;
+	margin-top: 0px;
+	margin-right:20px;
+	font-size:30px;
+	position:relative;
+	float:left;
+}
+
+.yibiao>p {
+	position: absolute;
+		color:white;
+		display: table;
+		clear: both;
+		left: 20px;
+}
+
+.detail {
+	display:flex;
+	list-style-type: none;
+	margin: 5px;
+}
+
+.detail>li{
+	margin-right: 15px;
+    margin-left:15px;
+}
+
+.erbiao {
+	font-weight: bold;
+	font-size:23px;
+}
+
+.sanbiao {
+	font-weight: bold;
+	margin: 0;
+
+}
+
+.sanbiao+p {
+	margin-top: 0;
+}
