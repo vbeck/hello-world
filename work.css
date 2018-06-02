@@ -1,0 +1,91 @@
+.head {
+	background-color: black;
+	width: 100%
+}
+.logo {
+	width: 960px;
+	color: white;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.logo #log {
+	font-size: 20px;
+}
+
+.logo #link {
+	display: inline;
+	list-style-type: none;
+	font-size: 10px;
+}
+a:link {color: white;}
+
+.banner {
+	background-color: lightgreen;
+	width: 100%;
+}
+.banner .youxia {
+	height: 250px;
+}
+
+.daohang {
+
+	display: flex;
+	height: 60px;
+	width: 960px;
+	margin: 0 auto;
+	align-items: flex-end;
+	margin-bottom: 0;
+}
+.daohang button {
+	height: 40px;
+	widows: 60px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.daohang #home {
+	background-color: white;
+}
+.daohang #profile,#about {
+	background-color: lightgray;
+}
+
+hr {
+	margin: 0 auto;
+}
+.content {
+	width: 960px;
+	margin: 0 auto;
+}
+.kk1 div, .kk2 div, .kk3 div {
+	border: 1px solid gray;
+	height: 200px;
+	text-align: center;
+	line-height: 200px;
+	margin: 5px;
+	flex-basis: 80px;
+
+}
+.kk1 , .kk2, .kk3 {
+	width: 960px;
+	display: flex;
+	justify-content: space-between;
+	margin: 5px ,5px,5px,0;
+}
+#k1, #k2{
+	flex-grow: 3;
+}
+#k3 {
+	flex-grow: 2;
+}
+.kk2 div ,.kk3 div{
+	flex-grow: 1;
+}
+
+.bottom {
+	background-color: #7B68EE;
+	text-align: center;
+	height: 100px;
+}
