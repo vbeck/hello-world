@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test2</title>
+	<style type="text/css">
+	
+		ul{
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			width:200px;
+			box-sizing: border-box;
+			border: 1px solid lightgray;
+		}
+
+		ul li:hover{
+			background-color: lightblue;
+		}
+		.select{
+			background-color: lightpink;
+			color: white;
+		}
+
+		input {
+			width: 200px;
+			box-sizing: border-box;
+		}
+
+	</style>
+</head>
+<body>
+	<input type="text" id="input">
+	<ul id="list"></ul>
+
+	<script type="text/javascript">
+
+	var postfixList=["@163.com","@gmail.com","@126.com","@qq.com"];
+	var input=document.getElementById("input");
+	var list=document.getElementById("list");
+	var btn = document.getElementById("btn");
+	var len = postfixList.length;
+	var index = 0;
+
+ 	input.focus();
+	/*window.onload=function(){
+		for(var i = 0; i<len; i++){
+			var item = document.createElement("li");
+			item.textContent = '1';
+			list.appendChild(item);
+		}
+		list.style.display='none';
+	}*/
+
+	input.onkeyup=function(e){
+		switch(e.keyCode){
+			case 38: 
+				index--;
+				changeColor();break;
+			case 40:
+				index++;
+				changeColor();break;
+			case 13:
+				if( input.value =="") list.textContent="";
+				else{input.value = document.getElementsByTagName("li")[index].textContent;
+				listShow('');} break;
+			case 27:
+				input.select();break;
+			default: 
+				index=0;
+				var str = getInputVal();
+				var listitem= getList(str);
+				insertUl(listitem);
+				listShow(str);
+				changeColor();
+		}
+		
+	}
+
+	list.onclick=function(e){
+		if(e.target.nodeName.toLowerCase()=="li"){
+			input.value = e.target.textContent;
+			listShow('');
+		}
+		input.focus();
+	}
+	
+	function getList(str1){
+		str1 = str1.trim();
+		var before,after;
+		var arr = new Array();
+		if(str1.indexOf("@")!= -1){
+			before = str1.substring(0,str1.indexOf("@"));
+			after = str1.substring(str1.indexOf("@")+1, str1.length);
+		}else{
+			before = str1;
+			after = "";
+		}
+		var itemlist = [], afterList=[];
+		if(after){
+			for(var i=0; i<len; i++){
+				if(postfixList[i].substr(1,after.length) == after){
+					afterList.push(postfixList[i]);
+				}
+			}
+		}
+		else{
+				afterList = postfixList. concat();
+			}
+			
+
+		for(i=0; i<afterList.length; i++){
+			itemlist[i] = document.createElement("li");
+			itemlist[i].textContent = before+afterList[i] ;
+		}
+		return itemlist;
+	}
+
+	function insertUl(itemlist){
+		list.textContent = "";
+		for(var i=0; i<len; i++){
+			list.appendChild(itemlist[i]);
+		}
+	}
+
+	function listShow(str){
+		if(str){
+			list.style.display = "block";
+		}else{
+			list.style.display = "none";
+		}
+	}
+
+	function getInputVal(){
+		var val = input.value;
+		return val;
+	}
+
+	function changeColor(){
+		var itemlist = document.getElementsByTagName("li");
+		if(index == -1){
+			index=len-1;
+		}
+		if(index == len){
+			index = 0;
+		}
+		for(var i=0; i<len; i++)
+		{
+			if(i == index){
+				itemlist[i].classList.add("select");
+			}else{
+				itemlist[i].setAttribute("class","");
+			}
+		}
+	}
+
+	</script>
+</body>
+</html>
